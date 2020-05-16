@@ -24,7 +24,7 @@
             android:textSize="60sp" />
 
         <TextView
-            android:id="@+id/degreeSymbol"
+            android:id="@+id/degree_symbol"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignBaseline="@id/temperature"
@@ -39,7 +39,7 @@
             android:layout_height="wrap_content"
             android:layout_alignBaseline="@id/temperature"
             android:layout_marginStart="20dp"
-            android:layout_toEndOf="@id/degreeSymbol"
+            android:layout_toEndOf="@id/degree_symbol"
             android:text="Shenzhen"
             android:textColor="@color/colorBlack"
             android:textSize="25sp" />
@@ -57,22 +57,34 @@
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:cardCornerRadius="10dp"
+        android:layout_height="match_parent"
+        app:cardCornerRadius="15dp"
         app:cardElevation="5dp"
         app:cardMaxElevation="10dp">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="20dp">
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            >
 
             <TextView
+                android:id="@+id/main_title"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="在您附近的优惠商家"
+                android:text="@string/main_title_with_merchants"
                 android:textColor="@color/colorBlack"
                 android:textSize="18sp" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycle_view_merchants"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp" />
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>

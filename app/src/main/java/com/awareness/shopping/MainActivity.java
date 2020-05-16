@@ -2,18 +2,26 @@ package com.awareness.shopping;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
+import com.awareness.shopping.adapter.MerchantAdapter;
+import com.awareness.shopping.data.MerchantsData;
+import com.awareness.shopping.entity.Merchant;
 import com.huawei.hms.kit.awareness.Awareness;
 import com.huawei.hms.kit.awareness.status.CapabilityStatus;
+
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
     final String TAG = getClass().getSimpleName();
+    private List<Merchant> merchantList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,5 +56,10 @@ public class MainActivity extends AppCompatActivity {
         if (actionBar != null) {
             actionBar.hide();
         }
+
+        merchantList = MerchantsData.getData();
+        RecyclerView recyclerView = findViewById(R.id.recycle_view_merchants);
+        recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
+        recyclerView.setAdapter(new MerchantAdapter(merchantList));
     }
 }

@@ -15,10 +15,10 @@ public class Utils {
     private static final String CHANNEL_ID = "Awa_Shopping";
 
     static void sendNotification(Context context, String content) {
-        RemoteViews notificationLayout = new RemoteViews(context.getPackageName(), R.layout.notification_layout);
-        notificationLayout.setTextViewText(R.id.notificationContent, content);
-        RemoteViews notificationLayoutExpand = new RemoteViews(context.getPackageName(), R.layout.notification_expand_layout);
-        notificationLayoutExpand.setTextViewText(R.id.notificationContent, content);
+        RemoteViews notificationLayout = new RemoteViews(context.getPackageName(), R.layout.view_notification);
+        notificationLayout.setTextViewText(R.id.notification_content, content);
+        RemoteViews notificationLayoutExpand = new RemoteViews(context.getPackageName(), R.layout.view_notification_expand);
+        notificationLayoutExpand.setTextViewText(R.id.notification_content, content);
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context, CHANNEL_ID);
         builder.setSmallIcon(R.mipmap.ic_launcher_round)
                 .setStyle(new NotificationCompat.DecoratedCustomViewStyle())

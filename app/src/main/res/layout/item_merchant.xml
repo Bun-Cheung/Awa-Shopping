@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="20dp"
+    app:cardElevation="0dp"
+    app:contentPadding="5dp"
+    app:cardMaxElevation="10dp">
+    <ImageView
+        android:id="@+id/merchant_background"
+        android:background="@drawable/background_flower"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        />
+
+    <RelativeLayout
+        android:layout_gravity="bottom"
+        android:layout_margin="10dp"
+        android:paddingStart="5dp"
+        android:paddingEnd="5dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:background="@drawable/round_corner_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/merchant_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:src="@drawable/ic_flowers"
+            android:maxHeight="30dp"
+            android:layout_centerVertical="true"
+            />
+        <TextView
+            android:id="@+id/merchant_name"
+            android:layout_toEndOf="@id/merchant_icon"
+            android:layout_marginStart="8dp"
+            android:textColor="@color/colorBlack"
+            android:layout_centerVertical="true"
+            android:text="寻百合"
+            android:textStyle="bold"
+            android:textSize="12sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

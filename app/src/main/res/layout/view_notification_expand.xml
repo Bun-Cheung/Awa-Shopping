@@ -5,7 +5,7 @@
     android:layout_height="wrap_content">
 
     <TextView
-        android:id="@+id/notificationContent"
+        android:id="@+id/notification_content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingBottom="10dp"
@@ -20,26 +20,39 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:padding="10dp"
             android:layout_weight="1"
-            android:src="@mipmap/ic_launcher" />
+            android:adjustViewBounds="true"
+            android:maxHeight="70dp"
+            android:src="@drawable/ic_coffee" />
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:src="@mipmap/ic_launcher" />
+            android:padding="10dp"
+            android:maxHeight="70dp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/ic_cotton" />
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:src="@mipmap/ic_launcher" />
+            android:padding="10dp"
+            android:maxHeight="70dp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/ic_flowers" />
 
-        <ImageView
+        <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:src="@mipmap/ic_launcher" />
+            android:textColor="@color/colorWhite"
+            android:textSize="12sp"
+            android:layout_gravity="center"
+            android:text="@string/get"
+            android:background="@drawable/round_corner_button" />
     </LinearLayout>
 
 </LinearLayout>
