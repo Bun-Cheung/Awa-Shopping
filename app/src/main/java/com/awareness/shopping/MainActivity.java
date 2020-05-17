@@ -30,18 +30,16 @@ import com.huawei.hms.kit.awareness.barrier.BarrierUpdateRequest;
 import com.huawei.hms.kit.awareness.barrier.BehaviorBarrier;
 import com.huawei.hms.kit.awareness.barrier.LocationBarrier;
 import com.huawei.hms.kit.awareness.barrier.TimeBarrier;
-import com.huawei.hms.kit.awareness.status.CapabilityStatus;
 import com.huawei.hms.kit.awareness.status.WeatherStatus;
 import com.huawei.hms.kit.awareness.status.weather.Situation;
 import com.huawei.hms.kit.awareness.status.weather.WeatherSituation;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
     public static final String COMBINED_BARRIER_LABEL = "shoppingMall_A combined label";
-    final String TAG = getClass().getSimpleName();
+    private final String TAG = getClass().getSimpleName();
     private static final int PERMISSION_REQUEST_CODE = 940;
     private TextView mTemperature;
     private TextView mCity;
@@ -171,8 +169,6 @@ public class MainActivity extends AppCompatActivity {
                         mWeather.setText(weatherDesc);
                     }
                 })
-                .addOnFailureListener(e -> {
-                    Log.e(TAG, "get weather failed", e);
-                });
+                .addOnFailureListener(e -> Log.e(TAG, "get weather failed", e));
     }
 }

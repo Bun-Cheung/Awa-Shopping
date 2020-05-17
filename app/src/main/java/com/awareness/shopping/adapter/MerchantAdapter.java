@@ -15,7 +15,7 @@ import com.awareness.shopping.entity.Merchant;
 import java.util.List;
 
 public class MerchantAdapter extends RecyclerView.Adapter<MerchantAdapter.ViewHolder> {
-    private List<Merchant> merchantList;
+    private final List<Merchant> merchantList;
     private onItemClickListener onItemClickListener;
 
     public MerchantAdapter(List<Merchant> merchantList) {
@@ -46,9 +46,7 @@ public class MerchantAdapter extends RecyclerView.Adapter<MerchantAdapter.ViewHo
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Merchant merchant = merchantList.get(position);
         if(onItemClickListener != null) {
-            holder.itemView.setOnClickListener(v -> {
-                onItemClickListener.onClick(position);
-            });
+            holder.itemView.setOnClickListener(v -> onItemClickListener.onClick(position));
         }
         holder.backgroundImage.setImageResource(merchant.getBackgroundImage());
         holder.merchantIcon.setImageResource(merchant.getIcon());

@@ -23,7 +23,7 @@ class WeatherDescription {
         weatherDescMap.put(WeatherId.FOG, context.getString(R.string.weather_fog));
         weatherDescMap.put(WeatherId.SHOWERS, context.getString(R.string.weather_showers));
         weatherDescMap.put(WeatherId.MOSTLY_CLOUDY_WITH_SHOWERS, context.getString(R.string.weather_mostly_cloudy_with_showers));
-        weatherDescMap.put(WeatherId.PARTLY_SUNNY_WITH_SHOWERS, context.getString(R.string.weather_partly_sunny_with_flurries));
+        weatherDescMap.put(WeatherId.PARTLY_SUNNY_WITH_SHOWERS, context.getString(R.string.weather_partly_sunny_with_showers));
         weatherDescMap.put(WeatherId.T_STORMS, context.getString(R.string.weather_T_storms));
         weatherDescMap.put(WeatherId.MOSTLY_CLOUDY_WITH_T_STORMS, context.getString(R.string.weather_mostly_cloudy_with_T_storms));
         weatherDescMap.put(WeatherId.PARTLY_SUNNY_WITH_T_STORMS, context.getString(R.string.weather_partly_sunny_with_T_storms));

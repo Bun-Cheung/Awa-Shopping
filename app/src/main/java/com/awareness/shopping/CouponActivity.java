@@ -14,7 +14,6 @@ import android.widget.Toast;
 import com.awareness.shopping.adapter.CouponAdapter;
 import com.awareness.shopping.mockdata.CouponsData;
 
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -52,9 +51,7 @@ public class CouponActivity extends AppCompatActivity {
     private void fetchCouponsData() {
         List<Integer> couponsList = CouponsData.getMockData();
         CouponAdapter adapter = new CouponAdapter(couponsList);
-        adapter.setOnItemClickListener(position -> {
-            Toast.makeText(this, "get coupon success", Toast.LENGTH_SHORT).show();
-        });
+        adapter.setOnItemClickListener(position -> Toast.makeText(this, "get coupon success", Toast.LENGTH_SHORT).show());
         mRecyclerView.setAdapter(adapter);
     }
 }

@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MerchantsData {
-    private static List<Merchant> merchants = new ArrayList<>();
+    private static final List<Merchant> merchants = new ArrayList<>();
 
     static {
         Merchant merchantCoffee = new Merchant("Kakaxi", R.drawable.ic_coffee, R.drawable.background_coffee);

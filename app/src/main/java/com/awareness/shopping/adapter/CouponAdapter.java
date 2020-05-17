@@ -14,7 +14,7 @@ import java.util.List;
 
 public class CouponAdapter extends RecyclerView.Adapter<CouponAdapter.ViewHolder> {
 
-    private List<Integer> couponList;
+    private final List<Integer> couponList;
     private onItemClickListener onItemClickListener;
 
     public CouponAdapter(List<Integer> couponList) {
@@ -22,7 +22,7 @@ public class CouponAdapter extends RecyclerView.Adapter<CouponAdapter.ViewHolder
     }
 
     static class ViewHolder extends RecyclerView.ViewHolder {
-        ImageView couponImage;
+        final ImageView couponImage;
 
         ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -41,9 +41,7 @@ public class CouponAdapter extends RecyclerView.Adapter<CouponAdapter.ViewHolder
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         int imageId = couponList.get(position);
         if (onItemClickListener != null) {
-            holder.itemView.setOnClickListener(v -> {
-                onItemClickListener.onClick(position);
-            });
+            holder.itemView.setOnClickListener(v -> onItemClickListener.onClick(position));
         }
         holder.couponImage.setImageResource(imageId);
     }

@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ShoppingMallData {
-    private static List<ShoppingMall> shoppingMallList = new ArrayList<>();
+    private static final List<ShoppingMall> shoppingMallList = new ArrayList<>();
 
     static {
         ShoppingMall shoppingMall_A = new ShoppingMall("shoppingMall A",
