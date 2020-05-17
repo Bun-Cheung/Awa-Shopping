@@ -1,4 +1,4 @@
-package com.awareness.shopping.data;
+package com.awareness.shopping.mockdata;
 
 import com.awareness.shopping.R;
 
@@ -15,7 +15,7 @@ public class CouponsData {
         couponList.add(R.drawable.coupons_hamburger_en);
     }
 
-    public static List<Integer> getData() {
+    public static List<Integer> getMockData() {
         return couponList;
     }
 }

@@ -1,4 +1,4 @@
-package com.awareness.shopping.data;
+package com.awareness.shopping.mockdata;
 
 import com.awareness.shopping.R;
 import com.awareness.shopping.entity.Merchant;
@@ -21,7 +21,7 @@ public class MerchantsData {
         merchants.add(merchantHamburger);
     }
 
-    public static List<Merchant> getData() {
+    public static List<Merchant> getMockData() {
         return merchants;
     }
 }

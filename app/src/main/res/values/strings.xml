@@ -6,6 +6,7 @@
     <string name="main_title_with_merchants">Awesome offers around you</string>
     <string name="na">NA</string>
     <string name="none">--</string>
+    <string name="coupons">Coupons</string>
 
     <string name="weather_sunny">Sunny</string>
     <string name="weather_mostly_sunny">mostly Sunny</string>

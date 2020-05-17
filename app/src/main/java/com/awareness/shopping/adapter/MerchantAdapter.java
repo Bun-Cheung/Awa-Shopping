@@ -16,6 +16,7 @@ import java.util.List;
 
 public class MerchantAdapter extends RecyclerView.Adapter<MerchantAdapter.ViewHolder> {
     private List<Merchant> merchantList;
+    private onItemClickListener onItemClickListener;
 
     public MerchantAdapter(List<Merchant> merchantList) {
         this.merchantList = merchantList;
@@ -26,7 +27,7 @@ public class MerchantAdapter extends RecyclerView.Adapter<MerchantAdapter.ViewHo
         ImageView merchantIcon;
         TextView merchantName;
 
-        public ViewHolder(@NonNull View itemView) {
+        ViewHolder(@NonNull View itemView) {
             super(itemView);
             backgroundImage = itemView.findViewById(R.id.merchant_background);
             merchantIcon = itemView.findViewById(R.id.merchant_icon);
@@ -44,6 +45,11 @@ public class MerchantAdapter extends RecyclerView.Adapter<MerchantAdapter.ViewHo
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Merchant merchant = merchantList.get(position);
+        if(onItemClickListener != null) {
+            holder.itemView.setOnClickListener(v -> {
+                onItemClickListener.onClick(position);
+            });
+        }
         holder.backgroundImage.setImageResource(merchant.getBackgroundImage());
         holder.merchantIcon.setImageResource(merchant.getIcon());
         holder.merchantName.setText(merchant.getName());
@@ -52,5 +58,13 @@ public class MerchantAdapter extends RecyclerView.Adapter<MerchantAdapter.ViewHo
     @Override
     public int getItemCount() {
         return merchantList.size();
+    }
+
+    public interface onItemClickListener{
+        void onClick(int position);
+    }
+
+    public void setOnItemClickListener(MerchantAdapter.onItemClickListener onItemClickListener) {
+        this.onItemClickListener = onItemClickListener;
     }
 }

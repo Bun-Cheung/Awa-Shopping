@@ -1,4 +1,4 @@
-package com.awareness.shopping.data;
+package com.awareness.shopping;
 
 import android.content.Context;
 import android.util.SparseArray;
@@ -7,11 +7,11 @@ import com.awareness.shopping.R;
 import com.huawei.hms.kit.awareness.status.weather.constant.CNWeatherId;
 import com.huawei.hms.kit.awareness.status.weather.constant.WeatherId;
 
-public class WeatherDescription {
+class WeatherDescription {
     private static SparseArray<String> weatherDescMap = new SparseArray<>();
     private static SparseArray<String> cnWeatherDescMap = new SparseArray<>();
 
-    public static void init(Context context) {
+    static void init(Context context) {
         weatherDescMap.put(WeatherId.SUNNY, context.getString(R.string.weather_sunny));
         weatherDescMap.put(WeatherId.MOSTLY_SUNNY, context.getString(R.string.weather_mostly_sunny));
         weatherDescMap.put(WeatherId.PARTLY_SUNNY, context.getString(R.string.weather_partly_sunny));
@@ -98,11 +98,11 @@ public class WeatherDescription {
         cnWeatherDescMap.put(CNWeatherId.SNOWFALL, context.getString(R.string.cnWeather_snow));
     }
 
-    public static SparseArray<String> getWeatherDescMap() {
+    static SparseArray<String> getWeatherDescMap() {
         return weatherDescMap;
     }
 
-    public static SparseArray<String> getCnWeatherDescMap() {
+    static SparseArray<String> getCnWeatherDescMap() {
         return cnWeatherDescMap;
     }
 }
