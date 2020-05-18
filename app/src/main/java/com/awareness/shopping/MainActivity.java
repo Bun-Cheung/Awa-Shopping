@@ -12,10 +12,12 @@ import android.app.PendingIntent;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
+import android.location.Location;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -38,12 +40,15 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    public static final String COMBINED_BARRIER_LABEL = "shoppingMall_A combined label";
+    public static final String COMBINED_BARRIER_LABEL = "shoppingMall_A combined barrier label";
     private final String TAG = getClass().getSimpleName();
     private static final int PERMISSION_REQUEST_CODE = 940;
     private TextView mTemperature;
     private TextView mCity;
     private TextView mWeather;
+    private TextView mTitle;
+    private RecyclerView mRecyclerView;
+    private ImageView mNoMerchantsImage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,16 +72,10 @@ public class MainActivity extends AppCompatActivity {
         mTemperature = findViewById(R.id.temperature);
         mCity = findViewById(R.id.city);
         mWeather = findViewById(R.id.weather);
-
-        List<Merchant> merchantList = MerchantsData.getMockData();
-        RecyclerView recyclerView = findViewById(R.id.recycle_view_merchants);
-        recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
-        MerchantAdapter adapter = new MerchantAdapter(merchantList);
-        adapter.setOnItemClickListener(position -> {
-            Intent intent = new Intent(this, CouponActivity.class);
-            startActivity(intent);
-        });
-        recyclerView.setAdapter(adapter);
+        mTitle = findViewById(R.id.main_title);
+        mRecyclerView = findViewById(R.id.recycle_view_merchants);
+        mRecyclerView.setLayoutManager(new GridLayoutManager(this, 2));
+        mNoMerchantsImage = findViewById(R.id.no_merchant_image);
     }
 
     private void requestPermission() {
@@ -106,6 +105,7 @@ public class MainActivity extends AppCompatActivity {
             if (permissionHasGranted) {
                 addBarrierToAwarenessKit();
                 getWeatherFromAwarenessKit();
+                getLocationFromAwarenessKit();
             } else {
                 Toast.makeText(this, "grant permission failed", Toast.LENGTH_SHORT).show();
             }
@@ -170,5 +170,31 @@ public class MainActivity extends AppCompatActivity {
                     }
                 })
                 .addOnFailureListener(e -> Log.e(TAG, "get weather failed", e));
+    }
+
+    private void getLocationFromAwarenessKit() {
+        Awareness.getCaptureClient(this).getLocation()
+                .addOnSuccessListener(locationResponse -> {
+                    Location location = locationResponse.getLocation();
+                    Log.i(TAG, "latitude:" + location.getLatitude()
+                            + ",longitude:" + location.getLongitude());
+                    fetchNearbyMerchantData(location.getLatitude(), location.getLongitude());
+                })
+                .addOnFailureListener(e -> {
+                    Log.i(TAG, "get Location failed", e);
+                    mTitle.setText(getString(R.string.main_title_with_no_merchants));
+                });
+    }
+
+    private void fetchNearbyMerchantData(double latitude, double longitude) {
+        List<Merchant> merchantList = MerchantsData.getMockData();
+        mNoMerchantsImage.setVisibility(View.GONE);
+        mTitle.setText(getString(R.string.main_title_with_merchants));
+        MerchantAdapter adapter = new MerchantAdapter(merchantList);
+        adapter.setOnItemClickListener(position -> {
+            Intent intent = new Intent(this, CouponActivity.class);
+            startActivity(intent);
+        });
+        mRecyclerView.setAdapter(adapter);
     }
 }

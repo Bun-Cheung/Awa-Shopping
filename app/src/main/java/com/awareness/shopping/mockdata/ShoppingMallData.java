@@ -10,7 +10,7 @@ public class ShoppingMallData {
 
     static {
         ShoppingMall shoppingMall_A = new ShoppingMall("shoppingMall A",
-                22.4943, 113.7436, 200);
+                22.880987, 113.868923,200 );
         shoppingMallList.add(shoppingMall_A);
     }
 

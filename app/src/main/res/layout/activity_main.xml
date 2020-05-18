@@ -75,7 +75,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
-                android:text="@string/main_title_with_merchants"
+                android:text="@string/main_title_with_no_merchants"
                 android:textColor="@color/colorBlack"
                 android:textSize="18sp" />
 
@@ -86,14 +86,13 @@
                 android:layout_marginTop="10dp" />
 
             <ImageView
-                android:id="@+id/no_merchant"
+                android:id="@+id/no_merchant_image"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="100dp"
                 android:adjustViewBounds="true"
                 android:maxWidth="200dp"
-                android:visibility="gone"
                 android:src="@drawable/background_none" />
         </LinearLayout>
 

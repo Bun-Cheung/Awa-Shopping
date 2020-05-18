@@ -4,6 +4,7 @@
     <string name="fahrenheit">℉</string>
     <string name="get">get</string>
     <string name="main_title_with_merchants">Awesome offers around you</string>
+    <string name="main_title_with_no_merchants">No merchants nearby</string>
     <string name="na">NA</string>
     <string name="none">--</string>
     <string name="coupons">Coupons</string>

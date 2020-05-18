@@ -40,7 +40,7 @@ public class BarrierService extends IntentService {
         int status = barrierStatus.getPresentStatus();
         String label = barrierStatus.getBarrierLabel();
         if (status == BarrierStatus.TRUE && label.equals(COMBINED_BARRIER_LABEL)) {
-            Utils.sendNotification(this,"Multiple coupons around you");
+            Utils.sendNotification(this,"Multiple coupons in the shoppingMall A");
         }
     }
 }
