@@ -26,7 +26,7 @@ public class BarrierService extends IntentService {
             if (manager == null) {
                 return;
             }
-            Notification notification = new Notification.Builder(this, Utils.CHANNEL_ID).build();
+            Notification notification = new Notification.Builder(this, NotificationUtils.CHANNEL_ID).build();
             startForeground(1, notification);
         }
     }
@@ -40,7 +40,7 @@ public class BarrierService extends IntentService {
         int status = barrierStatus.getPresentStatus();
         String label = barrierStatus.getBarrierLabel();
         if (status == BarrierStatus.TRUE && label.equals(COMBINED_BARRIER_LABEL)) {
-            Utils.sendNotification(this,"Multiple coupons in the shoppingMall A");
+            NotificationUtils.sendNotification(this,"Multiple coupons in the shoppingMall A");
         }
     }
 }

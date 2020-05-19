@@ -13,7 +13,7 @@ import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 
 
-class Utils {
+class NotificationUtils {
     static final String CHANNEL_ID = "Awa_Shopping";
 
     static void sendNotification(Context context, String content) {

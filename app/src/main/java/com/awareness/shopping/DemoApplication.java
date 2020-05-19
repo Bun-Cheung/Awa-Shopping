@@ -6,7 +6,7 @@ public class DemoApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        Utils.createNotificationChannel(this);
+        NotificationUtils.createNotificationChannel(this);
         WeatherDescription.init(this);
     }
 }
